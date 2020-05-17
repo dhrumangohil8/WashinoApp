@@ -7,5 +7,7 @@
         <item>@font/archivo_narrow_bold</item>
         <item>@font/baloo</item>
         <item>@font/berkshire_swash</item>
+        <item>@font/karla</item>
+        <item>@font/playfair_display</item>
     </array>
 </resources>

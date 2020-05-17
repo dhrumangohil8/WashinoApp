@@ -12,9 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 public class userscreen extends AppCompatActivity {
     Button createaccount;
     TextView mlogin;
+    Button googlelogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,17 @@ public class userscreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_userscreen);
         setContentView(R.layout.activity_userscreen);
-        createaccount=findViewById(R.id.create_account);
-        mlogin=findViewById(R.id.mlogin);
+        createaccount = findViewById(R.id.create_account);
+        mlogin = findViewById(R.id.mlogin);
+        googlelogin = findViewById(R.id.googlelogin);
         createaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Register.class));
+
+            }
+        });
+        googlelogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Register.class));
@@ -38,17 +49,7 @@ public class userscreen extends AppCompatActivity {
             }
         });
 
+
     }
 
-
-    public void didTapButton(View view) {
-        Button button = (Button)findViewById(R.id.button);
-        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-
-        // Use bounce interpolator with amplitude 0.2 and frequency 20
-        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.1, 20);
-        myAnim.setInterpolator(interpolator);
-
-        button.startAnimation(myAnim);
-    }
 }
