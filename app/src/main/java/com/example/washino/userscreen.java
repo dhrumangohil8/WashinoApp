@@ -27,7 +27,7 @@ public class userscreen extends AppCompatActivity {
         setContentView(R.layout.activity_userscreen);
         createaccount = findViewById(R.id.create_account);
         mlogin = findViewById(R.id.mlogin);
-        googlelogin = findViewById(R.id.googlelogin);
+        //googlelogin = findViewById(R.id.googlelogin);
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,13 +35,13 @@ public class userscreen extends AppCompatActivity {
 
             }
         });
-        googlelogin.setOnClickListener(new View.OnClickListener() {
+        /*googlelogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Register.class));
 
             }
-        });
+        });*/
         mlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
