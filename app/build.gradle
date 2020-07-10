@@ -27,6 +27,8 @@ repositories {
 
     maven {
         url 'https://dl.bintray.com/spark/maven'
+        maven { url "https://jitpack.io" }
+
     }
 }
 dependencies {
@@ -46,5 +48,13 @@ dependencies {
     implementation 'com.hbb20:ccp:2.3.1'
     //Otp
     implementation 'com.chaos.view:pinview:1.4.3'
+    // tracking
+    implementation 'com.github.baoyachi:StepView:1.9'
+    // calendar
+
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
+
+
+
 
 }

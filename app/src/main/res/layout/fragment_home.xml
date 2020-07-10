@@ -35,8 +35,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/search_layout"
             android:drawableStart="@drawable/ic_search_black_24dp"
+
 
             android:drawablePadding="15dp"
             android:ems="10"
@@ -62,6 +65,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner_slider_view_pager">
+
+        <include
+            layout="@layout/strip_ad_layout"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="470dp" />
+
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

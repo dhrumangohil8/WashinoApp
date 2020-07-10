@@ -1,7 +1,9 @@
 package com.example.washino;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +34,14 @@ private ViewPager bannerSliderViewPager;
 private List<SliderModel> sliderModelList;
 private int currentPage = 2;
 private Timer timer;
-final private long DELAY_TIME = 3000;
-final private long PERIOD_TIME = 3000;
+final private long DELAY_TIME = 5000;
+final private long PERIOD_TIME = 5000;
 ////// BannerSlider
+///// strip_ad_layout
+private ImageView stripimage;
+private ConstraintLayout stripaddcontainer;
+
+///// strip_ad_layout
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,6 +112,15 @@ final private long PERIOD_TIME = 3000;
         });
 
         /////BannerSlider
+
+
+        ///// strip_ad_layout
+        stripimage=view.findViewById(R.id.strip_ad_image);
+        stripaddcontainer=view.findViewById(R.id.strip_ad_container);
+
+        stripimage.setImageResource(R.drawable.car);
+        stripaddcontainer.setBackgroundColor(Color.parseColor("#000000"));
+        ///// strip_ad_layout
 
 
 
