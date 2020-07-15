@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -12,7 +14,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +48,14 @@ private ImageView stripimage;
 private ConstraintLayout stripaddcontainer;
 
 ///// strip_ad_layout
+
+///// Horizontal Product Layout
+private TextView HorizontallayoutTitle;
+private Button HorizontalviewAllbtn;
+private RecyclerView horizantalRecyclerView;
+
+
+////  Horizontal Product Layout
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -121,6 +135,40 @@ private ConstraintLayout stripaddcontainer;
         stripimage.setImageResource(R.drawable.car);
         stripaddcontainer.setBackgroundColor(Color.parseColor("#000000"));
         ///// strip_ad_layout
+
+
+        ///// Horizontal Product Layout
+
+        HorizontallayoutTitle=view.findViewById(R.id.horizontal_scroll_layout_title);
+        HorizontalviewAllbtn=view.findViewById(R.id.horizontal_scroll_layout_button);
+        horizantalRecyclerView=view.findViewById(R.id.horizontal_scroll_layout_recycleview);
+        List<HorizontalProductScrollModel> horizontalProductScrollModelList=new ArrayList<>();
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.car,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.facebook,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.ic_person_black_24dp,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.splashlogo,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.ic_home_black_24dp,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.car,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.google,"Package1","50% Sale","Rs. 3000"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.car,"Package1","50% Sale","Rs. 3000"));
+
+        HorizontalProductScrollAdapter horizontalProductScrollAdapter=new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        horizantalRecyclerView.setLayoutManager(linearLayoutManager);
+
+        horizantalRecyclerView.setAdapter(horizontalProductScrollAdapter);
+        horizontalProductScrollAdapter.notifyDataSetChanged();
+
+        ///// Horizontal Product Layout
+        //// Grid Layout
+
+        TextView gridLayoutTitle=view.findViewById(R.id.grid_layout_title);
+        Button gridLayoutButton=view.findViewById(R.id.grid_layout_view_button);
+        GridView gridView=view.findViewById(R.id.grid_layout_gridview);
+
+        gridView.setAdapter(new GridServicesAdapter(horizontalProductScrollModelList));
+        //// Grid Layout
 
 
 

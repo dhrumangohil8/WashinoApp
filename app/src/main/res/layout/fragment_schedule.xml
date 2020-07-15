@@ -8,16 +8,17 @@
 
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         android:id="@+id/compactcalendar_view"
+        android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_height="250dp"
-        app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="#ffe95451"
-        app:compactCalendarTextColor="#fff"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
+        app:compactCalendarTargetHeight="300dp"
+        app:compactCalendarTextSize="15sp"
+        app:compactCalendarBackgroundColor="#FFFFFF"
+        app:compactCalendarTextColor="#2A2A72"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#03A9F4"
         app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarMultiEventIndicatorColor="#fff"
+        app:compactCalendarMultiEventIndicatorColor="#2A2A72"
         />
 </RelativeLayout>
