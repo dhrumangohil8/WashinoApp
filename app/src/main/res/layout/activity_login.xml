@@ -123,6 +123,7 @@
         android:layout_height="33dp"
         android:background="@drawable/custombutton1"
         android:elevation="@dimen/cardview_default_elevation"
+        android:onClick="skipForNow"
         android:text="Skip for now"
         android:textAllCaps="false"
         android:textSize="18dp"

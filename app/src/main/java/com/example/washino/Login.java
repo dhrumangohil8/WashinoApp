@@ -21,9 +21,16 @@ public class Login extends AppCompatActivity {
     Animation middleAnimation;
     TextView a;
     Button login_button;
+    Button skip_now;
 
     Spinner spinnerCountries;
     TextInputEditText etPhone;
+
+    public void skipForNow(View view)
+    {
+        startActivity(new Intent(getApplicationContext(), navigation.class));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +40,7 @@ public class Login extends AppCompatActivity {
         middleAnimation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
         a.setAnimation(middleAnimation);
         login_button = findViewById(R.id.login_button);
-
+        skip_now = findViewById(R.id.skip);
         etPhone = findViewById(R.id.etPhone);
         spinnerCountries = findViewById(R.id.spinnerCountries);
 
