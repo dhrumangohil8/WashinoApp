@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +43,7 @@ public class profile extends Fragment {
     TextInputEditText userName;
     Spinner userGender;
     TextInputEditText userEmail;
-    TextInputEditText userPhone;
+//    TextInputEditText userPhone;
     TextInputEditText userAddress;
     TextInputEditText userCarName;
     Spinner userCarType;
@@ -68,7 +70,7 @@ public class profile extends Fragment {
         userName = view.findViewById(R.id.user_name);
         userEmail = view.findViewById(R.id.user_email);
         userGender = view.findViewById(R.id.user_gender);
-        userPhone = view.findViewById(R.id.user_phone);
+//        userPhone = view.findViewById(R.id.user_phone);
         userAddress = view.findViewById(R.id.user_address);
         userCarName = view.findViewById(R.id.user_car_name);
         userCarType = view.findViewById(R.id.user_car_type);
@@ -76,6 +78,7 @@ public class profile extends Fragment {
         userSave = view.findViewById(R.id.save);
 
         users = new ArrayList<>();
+
         databaseUsers = FirebaseDatabase.getInstance().getReference("users");
 
         userSave.setOnClickListener(new View.OnClickListener() {
@@ -93,24 +96,16 @@ public class profile extends Fragment {
         users.add(userName.getText().toString());
         users.add(userGender.getSelectedItem().toString());
         users.add(userEmail.getText().toString());
-        users.add(userPhone.getText().toString());
+//        users.add(userPhone.getText().toString());
+        users.add(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
         users.add(userAddress.getText().toString());
         users.add(userCarName.getText().toString());
         users.add(userCarNumber.getText().toString());
         users.add(userCarType.getSelectedItem().toString());
 
-        Log.i("user name",userGender.getSelectedItem().toString() );
-
-        if(!TextUtils.isEmpty(userPhone.getText().toString()))
-        {
-            String id = userPhone.getText().toString();
-            User user = new User(users);
-            databaseUsers.child(id).setValue(user);
-            Toast.makeText(getActivity(),"user added",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            Toast.makeText(getActivity(),"Phone number is important",Toast.LENGTH_LONG).show();
-        }
+        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        User user = new User(users);
+        databaseUsers.child(id).setValue(user);
+        Toast.makeText(getActivity(),"Registration successful",Toast.LENGTH_LONG).show();
     }
 }

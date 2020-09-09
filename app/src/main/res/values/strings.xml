@@ -20,6 +20,14 @@
         <item>Rickshaw</item>
         <item>Suv</item>
     </string-array>
+    
+    <array name="schedule_times">
+        <item>8:00 AM</item>
+        <item>8:30 AM</item>
+        <item>9:00 AM</item>
+        <item>9:30 AM</item>
+        <item>10:00 AM</item>
+    </array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

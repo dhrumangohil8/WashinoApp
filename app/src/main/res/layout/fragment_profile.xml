@@ -151,41 +151,41 @@
                         android:textSize="12dp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linearLayout6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="19dp"
-                    android:textColor="#2A2A72"
-                    android:textSize="15dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Phone: " />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingRight="19dp"-->
+<!--                    android:textColor="#2A2A72"-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:text="Phone: " />-->
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/phone"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone"
-                    app:boxStrokeColor="#2A2A72">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/phone"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Phone"-->
+<!--                    app:boxStrokeColor="#2A2A72">-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/user_phone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/aclonica"
-                        android:inputType="textPersonName"
-                        android:singleLine="true"
-                        android:textSize="12dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/user_phone"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/aclonica"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:textSize="12dp" />-->
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/linearLayout4"

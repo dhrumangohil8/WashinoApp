@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".schedule">
 
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView
-        android:id="@+id/compactcalendar_view"
-        android:layout_marginTop="50dp"
-        android:layout_width="fill_parent"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:layout_height="250dp"
-        app:compactCalendarTargetHeight="300dp"
-        app:compactCalendarTextSize="15sp"
-        app:compactCalendarBackgroundColor="#FFFFFF"
-        app:compactCalendarTextColor="#2A2A72"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#03A9F4"
-        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarMultiEventIndicatorColor="#2A2A72"
-        />
-</RelativeLayout>
+<!--    <com.github.sundeepk.compactcalendarview.CompactCalendarView-->
+<!--        android:id="@+id/compactcalendar_view"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:layout_height="250dp"-->
+<!--        app:compactCalendarTargetHeight="300dp"-->
+<!--        app:compactCalendarTextSize="15sp"-->
+<!--        app:compactCalendarBackgroundColor="#FFFFFF"-->
+<!--        app:compactCalendarTextColor="#2A2A72"-->
+<!--        app:compactCalendarCurrentSelectedDayBackgroundColor="#03A9F4"-->
+<!--        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"-->
+<!--        app:compactCalendarMultiEventIndicatorColor="#2A2A72"-->
+<!--        />-->
+
+    <CalendarView
+        android:id="@+id/calendarViewScheduling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/schedulingTime"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/schedule_times" />
+
+    <Button
+        android:id="@+id/btnSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custombutton"
+        android:text="Schedule my service"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+</LinearLayout>

@@ -74,10 +74,6 @@ public class location extends Fragment  {
         }
 
 
-
-
-
-
         return view;
 
     }
