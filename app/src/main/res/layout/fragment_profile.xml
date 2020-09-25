@@ -24,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id ="@+id/profileImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/profile" />
@@ -86,7 +87,7 @@
                         android:id="@+id/user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/aclonica"
+
                         android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textSize="12dp" />
@@ -145,47 +146,12 @@
                         android:id="@+id/user_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/aclonica"
+
                         android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textSize="12dp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linearLayout6"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingRight="19dp"-->
-<!--                    android:textColor="#2A2A72"-->
-<!--                    android:textSize="15dp"-->
-<!--                    android:layout_marginTop="15dp"-->
-<!--                    android:text="Phone: " />-->
-
-<!--                <com.google.android.material.textfield.TextInputLayout-->
-<!--                    android:id="@+id/phone"-->
-<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:hint="Phone"-->
-<!--                    app:boxStrokeColor="#2A2A72">-->
-
-<!--                    <com.google.android.material.textfield.TextInputEditText-->
-<!--                        android:id="@+id/user_phone"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/aclonica"-->
-<!--                        android:inputType="textPersonName"-->
-<!--                        android:singleLine="true"-->
-<!--                        android:textSize="12dp" />-->
-<!--                </com.google.android.material.textfield.TextInputLayout>-->
-<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -216,7 +182,7 @@
                         android:id="@+id/user_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/aclonica"
+
                         android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textSize="12dp" />
@@ -291,7 +257,7 @@
                             android:id="@+id/user_car_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/aclonica"
+
                             android:inputType="textPersonName"
                             android:singleLine="true"
                             android:textSize="12dp" />
@@ -331,13 +297,34 @@
                         android:id="@+id/user_car_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/aclonica"
+
                         android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textSize="12dp" />
                 </com.google.android.material.textfield.TextInputLayout> />
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutdef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:text="Default Wash Time: "
+                    android:textColor="#2A2A72"
+                    android:textSize="15dp" />
+
+                <Spinner
+                    android:id="@+id/time"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:entries="@array/schedule_times"/>
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/linearLayout8"
                 android:layout_width="match_parent"
@@ -414,9 +401,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Profile!"
+            android:text="Profile"
             android:textColor="#FFFF"
-            android:textSize="28dp"
+            android:textSize="35dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.051"

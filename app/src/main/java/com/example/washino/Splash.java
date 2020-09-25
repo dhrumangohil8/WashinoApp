@@ -18,7 +18,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        ImageView img = (ImageView)findViewById(R.id.splashImage);
+        ImageView img = findViewById(R.id.splashImage);
         Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade);
         img.startAnimation(aniFade);
         new Handler().postDelayed(new Runnable() {

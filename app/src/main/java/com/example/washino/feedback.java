@@ -37,7 +37,7 @@ public class feedback extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_feedback,container,false);
 
-        ratingFeedback = view.findViewById(R.id.ratingFeedback);
+        ratingFeedback = view.findViewById(R.id.ratingBar);
         etReview = view.findViewById(R.id.etReview);
 //        btnSubmitFeedback = view.findViewById(R.id.btnSubmitFeedback);
 

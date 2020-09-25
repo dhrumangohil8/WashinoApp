@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1028468559095-k03rbj3fjhm36tt7d1bb4f8ib6sbs760.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.washino",
+            "certificate_hash": "bc0cd6f0f2977d0a46dcf678d2386d9d0c741629"
+          }
+        },
+        {
           "client_id": "1028468559095-r78ulp7mvm6cuj5b9r8mcjrhm48dmd8l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
