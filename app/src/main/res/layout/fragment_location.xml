@@ -5,22 +5,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/locfragment"
     android:layout_height="match_parent"
-    android:background="@drawable/signup"
+    android:background="@drawable/login"
     tools:context=".location">
     <TextView
         android:id="@+id/textView4"
         android:layout_width="203dp"
         android:layout_height="41dp"
         android:layout_marginTop="30dp"
-        android:text="Tracking"
+        android:text="Live ,"
         android:textColor="#FFFF"
-        android:textSize="35dp"
+        android:textSize="32dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="195dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="5dp"
+        android:text="Tracking !"
+        android:textColor="#FFFF"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.015" />
 
     <ScrollView
         android:layout_width="match_parent"
