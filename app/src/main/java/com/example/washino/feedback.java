@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.hsalf.smilerating.SmileRating;
@@ -17,7 +20,11 @@ import com.hsalf.smilerating.SmileRating;
  * A simple {@link Fragment} subclass.
  */
 public class feedback extends Fragment {
-    private static final String TAG = "";
+
+    RatingBar ratingFeedback;
+    String ratingStar, reviewText;
+    EditText etReview;
+    Button btnSubmitFeedback;
 
     public feedback() {
         // Required empty public constructor
@@ -29,7 +36,23 @@ public class feedback extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_feedback,container,false);
+
+        ratingFeedback = view.findViewById(R.id.ratingFeedback);
+        etReview = view.findViewById(R.id.etReview);
+//        btnSubmitFeedback = view.findViewById(R.id.btnSubmitFeedback);
+
+        ratingFeedback.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                ratingStar = String.valueOf(rating);
+                Toast.makeText(getContext(), ratingStar, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        reviewText = etReview.getText().toString();
+
         // Inflate the layout for this fragment
+        /*
         try {
 
             SmileRating smileRating=view.findViewById(R.id.smile_rating);
@@ -79,6 +102,9 @@ public class feedback extends Fragment {
         {
             System.out.println(e);
         }
+
+        */
+
         return view;
 
     }

@@ -1,6 +1,7 @@
 package com.example.washino;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,7 +49,7 @@ public class profile extends Fragment {
     TextInputEditText userCarName;
     Spinner userCarType;
     TextInputEditText userCarNumber;
-    Button userSave;
+    Button userSave, logout;
 
     List<String> users;
 
@@ -76,6 +77,7 @@ public class profile extends Fragment {
         userCarType = view.findViewById(R.id.user_car_type);
         userCarNumber = view.findViewById(R.id.user_car_number);
         userSave = view.findViewById(R.id.save);
+        logout = view.findViewById(R.id.logout);
 
         users = new ArrayList<>();
 
@@ -85,6 +87,17 @@ public class profile extends Fragment {
             @Override
             public void onClick(View v) {
                 addUser();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(), Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 

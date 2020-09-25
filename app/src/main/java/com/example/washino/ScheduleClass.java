@@ -1,14 +1,15 @@
 package com.example.washino;
 
 public class ScheduleClass {
-    String scheduleDate, scheduleTime;
+    String scheduleDate, scheduleTime, scheduleNotes;
     public ScheduleClass(){
 
     }
 
-    public ScheduleClass(String scheduleDate, String scheduleTime) {
+    public ScheduleClass(String scheduleDate, String scheduleTime, String scheduleNotes) {
         this.scheduleDate = scheduleDate;
         this.scheduleTime = scheduleTime;
+        this.scheduleNotes = scheduleNotes;
     }
 
     public String getScheduleDate() {
@@ -25,5 +26,13 @@ public class ScheduleClass {
 
     public void setScheduleTime(String scheduleTime) {
         this.scheduleTime = scheduleTime;
+    }
+
+    public String getScheduleNotes() {
+        return scheduleNotes;
+    }
+
+    public void setScheduleNotes(String scheduleNotes) {
+        this.scheduleNotes = scheduleNotes;
     }
 }

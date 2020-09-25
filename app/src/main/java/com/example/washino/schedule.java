@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
+import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -50,6 +53,7 @@ public class schedule extends Fragment {
     Spinner schedulingTime;
     Button btnSchedule;
     String date, time, schedule;
+    EditText etScheduleNotes;
 
     public schedule() {
         // Required empty public constructor
@@ -65,6 +69,10 @@ public class schedule extends Fragment {
         calendarViewScheduling = view.findViewById(R.id.calendarViewScheduling);
         schedulingTime = view.findViewById(R.id.schedulingTime);
         btnSchedule = view.findViewById(R.id.btnSchedule);
+        etScheduleNotes = view.findViewById(R.id.etScheduleNotes);
+
+        calendarViewScheduling.setDate(System.currentTimeMillis());
+        calendarViewScheduling.setMinDate(System.currentTimeMillis() - 1000);
 
         calendarViewScheduling.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -80,7 +88,7 @@ public class schedule extends Fragment {
                 schedule = "Scheduled on " + date + " at " + time;
                 Toast.makeText(getContext(), schedule , Toast.LENGTH_SHORT).show();
                 DatabaseReference dbSchedule = FirebaseDatabase.getInstance().getReference("users");
-                ScheduleClass mySchedule = new ScheduleClass(date, time);
+                ScheduleClass mySchedule = new ScheduleClass(date, time, etScheduleNotes.getText().toString());
                 dbSchedule.child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()).child("schedule").setValue(mySchedule);
             }
         });
