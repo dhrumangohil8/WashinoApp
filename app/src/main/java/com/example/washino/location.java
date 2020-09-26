@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -12,13 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baoyachi.stepview.VerticalStepView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,11 +35,12 @@ public class location extends Fragment  {
     VerticalStepView verticalStepView;
     TextView a;
     Animation middleAnimation;
+    DatabaseReference trackingDb = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()).child("tracking");
+    int trackingStatus;
 
     public location()  {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,9 +51,19 @@ public class location extends Fragment  {
         a = view.findViewById(R.id.a);
         middleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.middle_animation);
         a.setAnimation(middleAnimation);
-
-
         // add source
+
+        trackingDb.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                trackingStatus = Integer.parseInt(snapshot.child("currentStep").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         List<String> sources = new ArrayList<>();
         sources.add("Start");
@@ -55,7 +74,6 @@ public class location extends Fragment  {
         sources.add("Cleaning");
         sources.add("Deseil Washing");
         sources.add("Completed");
-        try {
 
             verticalStepView.setStepsViewIndicatorComplectingPosition(sources.size()-2).reverseDraw(false)
                     .setStepViewTexts(sources)
@@ -68,13 +86,7 @@ public class location extends Fragment  {
                     .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_check_circle_black_24dp))
                     .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_error_black_24dp))
                     .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_radio_button_checked_black_24dp));
-
-        } catch (Exception e){
-            System.out.println(e);
-        }
-
-
+            verticalStepView.setStepsViewIndicatorComplectingPosition(trackingStatus%8);
         return view;
-
     }
 }
