@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hsalf.smilerating.SmileRating;
 
 
@@ -39,7 +42,7 @@ public class feedback extends Fragment {
 
         ratingFeedback = view.findViewById(R.id.ratingBar);
         etReview = view.findViewById(R.id.etReview);
-//        btnSubmitFeedback = view.findViewById(R.id.btnSubmitFeedback);
+        btnSubmitFeedback = view.findViewById(R.id.btnSubmitFeedback);
 
         ratingFeedback.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -49,7 +52,17 @@ public class feedback extends Fragment {
             }
         });
 
-        reviewText = etReview.getText().toString();
+        btnSubmitFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reviewText = etReview.getText().toString();
+                DatabaseReference feedbackDb = FirebaseDatabase.getInstance().getReference("feedback");
+                String feedbackId = feedbackDb.push().getKey();
+                FeedbackClass feedback = new FeedbackClass(reviewText, ratingStar, FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
+                feedbackDb.child(feedbackId).setValue(feedback);
+                Toast.makeText(getContext(), "Thanks for your feedback!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Inflate the layout for this fragment
         /*
