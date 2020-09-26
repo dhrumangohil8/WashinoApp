@@ -20,7 +20,7 @@
         <item>Rickshaw</item>
         <item>Suv</item>
     </string-array>
-    
+
     <array name="schedule_times">
         <item>6:00AM - 6:30AM</item>
         <item>6:30AM - 7:00AM</item>

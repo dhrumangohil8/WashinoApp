@@ -17,6 +17,7 @@ public class User {
     private String userCarName;
     private String userCarType;
     private String userCarNumber;
+    private String userDefaultTime;
 
     public User() {
 
@@ -32,6 +33,7 @@ public class User {
         this.userCarName=list.get(5);
         this.userCarNumber=list.get(6);
         this.userCarType=list.get(7);
+        this.userDefaultTime=list.get(8);
     }
 
     public String getUserName(){return userName;}
@@ -42,5 +44,6 @@ public class User {
     public String getUserCarName(){return userCarName;}
     public String getUserCarType(){return userCarType;}
     public String getUserCarNumber(){return userCarNumber;}
+    public String getUserDefaultTime(){return userDefaultTime;}
 
 }

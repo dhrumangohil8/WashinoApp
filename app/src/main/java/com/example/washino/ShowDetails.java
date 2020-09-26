@@ -1,25 +1,19 @@
 package com.example.washino;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -27,16 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,24 +30,22 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import static android.app.Activity.RESULT_OK;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class profile extends Fragment {
+public class ShowDetails extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 234;
     TextView a;
     Animation middleAnimation;
-    TextInputEditText userName;
-    Spinner userGender;
-    TextInputEditText userEmail;
-    TextInputEditText userAddress;
-    TextInputEditText userCarName;
-    Spinner userCarType;
-    TextInputEditText userCarNumber;
-    Button userSave, logout;
-    Spinner userDefaultTime;
+    TextView userName;
+    TextView userGender;
+    TextView userEmail;
+    TextView userAddress;
+    TextView userCarName;
+    TextView userCarType;
+    TextView userCarNumber;
+    Button userEdit, logout;
+    TextView userDefaultTime;
     ImageView profileImg;
     private StorageReference mStorageRef;
     public Uri imguri;
@@ -72,7 +55,7 @@ public class profile extends Fragment {
     DatabaseReference profileDetail;
 
 
-    public profile() {
+    public ShowDetails() {
         // Required empty public constructor
     }
 
@@ -80,21 +63,21 @@ public class profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_profile,container,false);
+        View view =inflater.inflate(R.layout.fragment_show_details,container,false);
         a = view.findViewById(R.id.a);
         middleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.middle_animation);
         a.setAnimation(middleAnimation);
         // All UI Elements
-        userName = view.findViewById(R.id.user_name);
-        userEmail = view.findViewById(R.id.user_email);
-        userGender = view.findViewById(R.id.user_gender);
-        userAddress = view.findViewById(R.id.user_address);
-        userCarName = view.findViewById(R.id.user_car_name);
-        userCarType = view.findViewById(R.id.user_car_type);
-        userCarNumber = view.findViewById(R.id.user_car_number);
-        userSave = view.findViewById(R.id.save);
+        userName = view.findViewById(R.id.show_name);
+        userEmail = view.findViewById(R.id.show_email);
+        userGender = view.findViewById(R.id.show_gender);
+        userAddress = view.findViewById(R.id.show_address);
+        userCarName = view.findViewById(R.id.show_car_name);
+        userCarType = view.findViewById(R.id.show_car_type);
+        userCarNumber = view.findViewById(R.id.show_car_no);
+        userEdit = view.findViewById(R.id.edit);
         logout = view.findViewById(R.id.logout);
-        userDefaultTime = view.findViewById(R.id.time);
+        userDefaultTime = view.findViewById(R.id.show_wash_time);
         profileImg = view.findViewById(R.id.profileImage);
 
         // Firebase Objects
@@ -105,13 +88,11 @@ public class profile extends Fragment {
         profileDetail = FirebaseDatabase.getInstance().getReference("users").child(usrId);
 
         // Get Details Automatically from database
+        fillDetail();
 
-
-        // Save Button Listener
-        userSave.setOnClickListener(new View.OnClickListener() {
+        userEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addUser();
                 swapFragments();
             }
         });
@@ -131,31 +112,52 @@ public class profile extends Fragment {
         return view;
     }
 
-    // Add Users Profile Method
-    private void addUser()
-    {
-        users.add(userName.getText().toString());
-        users.add(userGender.getSelectedItem().toString());
-        users.add(userEmail.getText().toString());
-//        users.add(userPhone.getText().toString());
-        users.add(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
-        users.add(userAddress.getText().toString());
-        users.add(userCarName.getText().toString());
-        users.add(userCarNumber.getText().toString());
-        users.add(userCarType.getSelectedItem().toString());
-        users.add(userDefaultTime.getSelectedItem().toString());
-        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-        User user = new User(users);
-        databaseUsers.child(id).setValue(user);
-        Toast.makeText(getActivity(),"Registration successful",Toast.LENGTH_LONG).show();
-    }
-
     private void swapFragments()
     {
-        ShowDetails profileFragment = new ShowDetails();
+        profile profileFragment = new profile();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, profileFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private void fillDetail()
+    {
+        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        databaseUsers = FirebaseDatabase.getInstance().getReference("users").child(id);
+
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    if (snapshot.getValue() != null) {
+                        try {
+                            Log.e("TAG", "" + snapshot.getValue());
+
+                            userName.setText(snapshot.child("userName").getValue().toString());
+                            userAddress.setText(snapshot.child("userAddress").getValue().toString());
+                            userCarName.setText(snapshot.child("userCarName").getValue().toString());
+                            userCarNumber.setText(snapshot.child("userCarNumber").getValue().toString());
+                            userCarType.setText(snapshot.child("userCarType").getValue().toString());
+                            userEmail.setText(snapshot.child("userEmail").getValue().toString());
+                            userGender.setText(snapshot.child("userGender").getValue().toString());
+                            userDefaultTime.setText(snapshot.child("userDefaultTime").getValue().toString());
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Log.e("TAG", " it's null.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("onCancelled", " cancelled");
+            }
+        });
     }
 }
