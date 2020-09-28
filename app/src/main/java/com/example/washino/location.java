@@ -36,7 +36,7 @@ public class location extends Fragment  {
     TextView a;
     Animation middleAnimation;
     DatabaseReference trackingDb = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()).child("tracking");
-    int trackingStatus;
+    int trackingStatus = 0;
 
     public location()  {
         // Required empty public constructor
@@ -56,7 +56,8 @@ public class location extends Fragment  {
         trackingDb.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                trackingStatus = Integer.parseInt(snapshot.child("currentStep").getValue().toString());
+                if(snapshot.child("currentStep").getValue() != null)
+                    trackingStatus = Integer.parseInt(snapshot.child("currentStep").getValue().toString());
             }
 
             @Override
