@@ -30,10 +30,10 @@
                 android:src="@drawable/profile" />
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <!--Button
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:text="Edit Profile Picture"
             android:textSize="12sp"
@@ -43,7 +43,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roundCardView" /-->
+
+
+        <Button
+            android:id="@+id/choosePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:text="Choose  Profile Picture"
+            android:textColor="#0EBFE9"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/roundCardView" />
+
+        <Button
+            android:id="@+id/uploadPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:text="Upload Profile Picture"
+            android:textColor="#0EBFE9"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roundCardView" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -323,51 +353,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:entries="@array/schedule_times"/>
-            </LinearLayout>
-
-            <!--images-->
-            <LinearLayout
-                android:id="@+id/linearLayoutImages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-                <Button
-                    android:id="@+id/choosePic"
-                    android:layout_width="139dp"
-                    android:layout_height="58dp"
-                    android:background="@drawable/custombutton"
-                    android:elevation="50dp"
-                    android:text="Choose"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:cursorVisible="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.533"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintVertical_bias="0.209" />
-
-                <Button
-                    android:id="@+id/uploadPic"
-                    android:layout_width="139dp"
-                    android:layout_height="58dp"
-                    android:background="@drawable/custombutton"
-                    android:cursorVisible="true"
-                    android:elevation="50dp"
-                    android:text="Upload"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.533"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintVertical_bias="0.209" />
-
             </LinearLayout>
 
             <LinearLayout

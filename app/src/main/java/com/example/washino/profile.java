@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -109,10 +113,12 @@ public class profile extends Fragment {
         userSave = view.findViewById(R.id.save);
         logout = view.findViewById(R.id.logout);
         userDefaultTime = view.findViewById(R.id.time);
-        profileImg = view.findViewById(R.id.profileImage);
+        //profileImg = view.findViewById(R.id.profileImage);
         btnSelect = view.findViewById(R.id.choosePic);
         btnUpload = view.findViewById(R.id.uploadPic);
-        imageView = view.findViewById(R.id.selectedImage);
+        imageView = view.findViewById(R.id.profileImage);
+
+        fillDetail();
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -122,6 +128,7 @@ public class profile extends Fragment {
             public void onClick(View v)
             {
                 SelectImage();
+                //uploadImage();
             }
         });
 
@@ -260,7 +267,7 @@ public class profile extends Fragment {
                     .child(usrId)
                     .child(
                             "images/"
-                                    + UUID.randomUUID().toString());
+                                    + "photoOfCar");
 
             // adding listeners on upload
             // or failure of image
@@ -317,5 +324,45 @@ public class profile extends Fragment {
                                 }
                             });
         }
+    }
+
+    private void fillDetail()
+    {
+        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        databaseUsers = FirebaseDatabase.getInstance().getReference("users").child(id);
+
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    if (snapshot.getValue() != null) {
+                        try {
+                            Log.e("TAG", "" + snapshot.getValue());
+
+                            userName.setText(snapshot.child("userName").getValue().toString());
+                            userAddress.setText(snapshot.child("userAddress").getValue().toString());
+                            userCarName.setText(snapshot.child("userCarName").getValue().toString());
+                            userCarNumber.setText(snapshot.child("userCarNumber").getValue().toString());
+                            //userCarType.setText(snapshot.child("userCarType").getValue().toString());
+                            userEmail.setText(snapshot.child("userEmail").getValue().toString());
+                            //userGender.setText(snapshot.child("userGender").getValue().toString());
+                            //userDefaultTime.setText(snapshot.child("userDefaultTime").getValue().toString());
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Log.e("TAG", " it's null.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("onCancelled", " cancelled");
+            }
+        });
     }
 }
