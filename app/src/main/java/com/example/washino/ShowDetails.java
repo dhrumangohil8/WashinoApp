@@ -32,6 +32,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ShowDetails extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 234;
@@ -80,6 +81,7 @@ public class ShowDetails extends Fragment {
         userDefaultTime = view.findViewById(R.id.show_wash_time);
         profileImg = view.findViewById(R.id.profileImage);
 
+        loadWithGlide();
         // Firebase Objects
         mStorageRef = FirebaseStorage.getInstance().getReference();
         users = new ArrayList<>();
@@ -159,5 +161,16 @@ public class ShowDetails extends Fragment {
                 Log.e("onCancelled", " cancelled");
             }
         });
+    }
+
+    public void loadWithGlide() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        String url = "gs://washinoapplication.appspot.com/"+id+"/images/photoOfCar";
+        Log.i("url:",url);
+        StorageReference gsReference = storage.getReferenceFromUrl(url);
+        GlideApp.with(Objects.requireNonNull(getContext()))
+                .load(gsReference)
+                .into(profileImg);
     }
 }

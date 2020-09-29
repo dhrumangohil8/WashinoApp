@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -119,6 +120,7 @@ public class profile extends Fragment {
         imageView = view.findViewById(R.id.profileImage);
 
         fillDetail();
+        loadWithGlide();
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -364,5 +366,16 @@ public class profile extends Fragment {
                 Log.e("onCancelled", " cancelled");
             }
         });
+    }
+
+    public void loadWithGlide() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        String id = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+        String url = "gs://washinoapplication.appspot.com/"+id+"/images/photoOfCar";
+        Log.i("url:",url);
+        StorageReference gsReference = storage.getReferenceFromUrl(url);
+        GlideApp.with(Objects.requireNonNull(getContext()))
+                .load(gsReference)
+                .into(imageView);
     }
 }
