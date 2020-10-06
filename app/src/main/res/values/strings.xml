@@ -15,19 +15,15 @@
     </string-array>
 
     <string-array name="spinner_array2">
-        <item>Sedan</item>
-        <item>Truck</item>
-        <item>Rickshaw</item>
-        <item>Suv</item>
+        <item>Bike</item>
+        <item>4 Seater</item>
+        <item>6 Seater</item>
     </string-array>
 
     <array name="schedule_times">
-        <item>6:00AM - 6:30AM</item>
-        <item>6:30AM - 7:00AM</item>
-        <item>7:00AM - 7:30AM</item>
-        <item>7:30AM - 8:00AM</item>
-        <item>8:00AM - 8:30AM</item>
-        <item>8:30AM - 9:00AM</item>
+        <item>6:00AM - 7:00AM</item>
+        <item>7:00AM - 8:00AM</item>
+        <item>8:00AM - 9:00AM</item>
     </array>
 
     <!-- TODO: Remove or change this placeholder text -->
