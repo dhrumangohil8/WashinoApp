@@ -8,22 +8,6 @@
     android:background="@drawable/signup"
     tools:context=".schedule">
 
-<!--    <com.github.sundeepk.compactcalendarview.CompactCalendarView-->
-<!--        android:id="@+id/compactcalendar_view"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:paddingRight="10dp"-->
-<!--        android:paddingLeft="10dp"-->
-<!--        android:layout_height="250dp"-->
-<!--        app:compactCalendarTargetHeight="300dp"-->
-<!--        app:compactCalendarTextSize="15sp"-->
-<!--        app:compactCalendarBackgroundColor="#FFFFFF"-->
-<!--        app:compactCalendarTextColor="#2A2A72"-->
-<!--        app:compactCalendarCurrentSelectedDayBackgroundColor="#03A9F4"-->
-<!--        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"-->
-<!--        app:compactCalendarMultiEventIndicatorColor="#2A2A72"-->
-<!--        />-->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +25,7 @@
         android:textStyle="bold" />
 
     <CalendarView
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:id="@+id/calendarViewScheduling"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +35,7 @@
     <Spinner
         android:id="@+id/schedulingTime"
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
@@ -64,7 +48,7 @@
         android:gravity="top"
         android:textSize="12sp"
         android:ems="10"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -75,7 +59,7 @@
         android:id="@+id/btnSchedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/custombutton"

@@ -67,13 +67,8 @@ public class location extends Fragment  {
         });
 
         List<String> sources = new ArrayList<>();
-        sources.add("Start");
-        sources.add("Arriving");
         sources.add("Arrived");
         sources.add("Washing");
-        sources.add("Foam washing");
-        sources.add("Cleaning");
-        sources.add("Deseil Washing");
         sources.add("Completed");
 
             verticalStepView.setStepsViewIndicatorComplectingPosition(sources.size()-2).reverseDraw(false)
@@ -87,7 +82,7 @@ public class location extends Fragment  {
                     .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_check_circle_black_24dp))
                     .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_error_black_24dp))
                     .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_radio_button_checked_black_24dp));
-            verticalStepView.setStepsViewIndicatorComplectingPosition(trackingStatus%8);
+            verticalStepView.setStepsViewIndicatorComplectingPosition(trackingStatus%3);
         return view;
     }
 }

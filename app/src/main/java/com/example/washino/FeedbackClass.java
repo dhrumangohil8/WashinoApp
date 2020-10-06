@@ -2,15 +2,14 @@ package com.example.washino;
 
 public class FeedbackClass {
 
-    String feedbackReview, ratings, submittedBy;
+    String feedbackReview, ratings;
     public FeedbackClass() {
 
     }
 
-    public FeedbackClass(String feedbackReview, String ratings, String submittedBy) {
+    public FeedbackClass(String feedbackReview, String ratings) {
         this.feedbackReview = feedbackReview;
         this.ratings = ratings;
-        this.submittedBy = submittedBy;
     }
 
     public String getFeedbackReview() {
@@ -27,13 +26,5 @@ public class FeedbackClass {
 
     public void setRatings(String ratings) {
         this.ratings = ratings;
-    }
-
-    public String getSubmittedBy() {
-        return submittedBy;
-    }
-
-    public void setSubmittedBy(String submittedBy) {
-        this.submittedBy = submittedBy;
     }
 }
