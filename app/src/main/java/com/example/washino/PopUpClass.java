@@ -112,6 +112,7 @@ public class PopUpClass extends AppCompatActivity {
                         }
                     } else {
                         Log.e("TAG", " it's null.");
+                        schNotes.setText("Not Available");
 
                     }
                 } catch (Exception e) {
