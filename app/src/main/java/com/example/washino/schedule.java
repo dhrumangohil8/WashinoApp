@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,10 +46,6 @@ import java.util.Objects;
  * A simple {@link Fragment} subclass.
  */
 public class schedule extends Fragment {
-    private static final String TAG = "";
-    private CompactCalendarView compactCalendar;
-    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM- yyyy", Locale.getDefault());
-
     CalendarView calendarViewScheduling;
     Spinner schedulingTime;
     Button btnSchedule;
