@@ -65,6 +65,18 @@
                 android:hint="Any special notes?" />
 
             <Button
+                android:id="@+id/showSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/custombutton"
+                android:text="Show my service"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+            <Button
                 android:id="@+id/btnSchedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

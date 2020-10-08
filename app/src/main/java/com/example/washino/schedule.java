@@ -51,6 +51,7 @@ public class schedule extends Fragment {
     Button btnSchedule;
     String date, time, schedule;
     EditText etScheduleNotes;
+    Button showSchedule;
 
     public schedule() {
         // Required empty public constructor
@@ -66,6 +67,7 @@ public class schedule extends Fragment {
         calendarViewScheduling = view.findViewById(R.id.calendarViewScheduling);
         schedulingTime = view.findViewById(R.id.schedulingTime);
         btnSchedule = view.findViewById(R.id.btnSchedule);
+        showSchedule = view.findViewById(R.id.showSchedule);
         etScheduleNotes = view.findViewById(R.id.etScheduleNotes);
 
         calendarViewScheduling.setDate(System.currentTimeMillis());
@@ -87,6 +89,14 @@ public class schedule extends Fragment {
                 DatabaseReference dbSchedule = FirebaseDatabase.getInstance().getReference("users");
                 ScheduleClass mySchedule = new ScheduleClass(date, time, etScheduleNotes.getText().toString());
                 dbSchedule.child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()).child("schedule").setValue(mySchedule);
+            }
+        });
+
+        showSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopUpClass popUpClass = new PopUpClass();
+                popUpClass.showPopupWindow(v);
             }
         });
 
@@ -146,7 +156,6 @@ public class schedule extends Fragment {
         return view;
 
     }
-
 
 }
 
