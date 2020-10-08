@@ -82,9 +82,21 @@ public class PopUpClass extends AppCompatActivity {
                     if (snapshot.getValue() != null) {
                         try {
                             Log.e("TAG", "" + snapshot.getValue());
-                            schDate.setText("Scheduled Date: "+snapshot.child("scheduleDate").getValue().toString());
-                            schNotes.setText("Scheduled Notes: "+snapshot.child("scheduleNotes").getValue().toString());
-                            schTime.setText("Scheduled Time: "+snapshot.child("scheduleTime").getValue().toString());
+                            if(snapshot.child("scheduleDate").getValue().toString()!=null )
+                                schDate.setText("Scheduled Date: "+snapshot.child("scheduleDate").getValue().toString());
+                            else
+                                schDate.setText("Schedule Date: NA");
+
+                            if(snapshot.child("scheduleNotes").getValue().toString()!=null || snapshot.child("scheduleNotes").getValue().toString()!="")
+                                schNotes.setText("Scheduled Notes: "+snapshot.child("scheduleNotes").getValue().toString());
+                            else
+                                schNotes.setText("Schedule Notes: NA");
+
+                            if(snapshot.child("scheduleTime").getValue().toString()!=null)
+                                schTime.setText("Scheduled Time: "+snapshot.child("scheduleTime").getValue().toString());
+
+                            else
+                                schTime.setText("Scheduled Time: NA");
 
 //                            userName.setText(snapshot.child("userName").getValue().toString());
 //                            userAddress.setText(snapshot.child("userAddress").getValue().toString());
@@ -104,9 +116,6 @@ public class PopUpClass extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    schDate.setText("Scheduled Date Not Available ");
-                    schNotes.setText("Scheduled Notes Not Available ");
-                    schTime.setText("Scheduled Time Not Available ");
                 }
             }
 
