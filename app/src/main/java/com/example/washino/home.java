@@ -67,20 +67,16 @@ private RecyclerView horizantalRecyclerView;
         bannerSliderViewPager= view.findViewById(R.id.banner_slider_view_pager);
         sliderModelList=new ArrayList<SliderModel>();
 
-        sliderModelList.add(new SliderModel(R.drawable.ic_home_black_24dp,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_feedback_black_24dp,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.splashlogo,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.first,"#A8A8A8"));
 
-        sliderModelList.add(new SliderModel(R.drawable.facebook,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.twitter,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.google,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_person_black_24dp,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_schedule_black_24dp,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_home_black_24dp,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.second,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.three,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.fourth,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.five,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.six,"#A8A8A8"));
 
-        sliderModelList.add(new SliderModel(R.drawable.ic_feedback_black_24dp,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.splashlogo,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.facebook,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.first,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.second,"#A8A8A8"));
 
 
 
@@ -129,12 +125,11 @@ private RecyclerView horizantalRecyclerView;
 
 
         ///// strip_ad_layout
-        stripimage=view.findViewById(R.id.strip_ad_image);
-        stripaddcontainer=view.findViewById(R.id.strip_ad_container);
-
-        stripimage.setImageResource(R.drawable.car);
-        stripaddcontainer.setBackgroundColor(Color.parseColor("#000000"));
-        ///// strip_ad_layout
+//        stripimage=view.findViewById(R.id.strip_ad_image);
+//        stripaddcontainer=view.findViewById(R.id.strip_ad_container);
+//
+//        stripaddcontainer.setBackgroundColor(Color.parseColor("#000000"));
+//        ///// strip_ad_layout
 
 
         ///// Horizontal Product Layout
