@@ -2,6 +2,7 @@ package com.example.washino;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class SliderAdapter extends PagerAdapter {
         banner_container.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(sliderModelList.get(position).getBackgroundcolor())));
         ImageView banner =view.findViewById(R.id.banner_slide);
         banner.setImageResource(sliderModelList.get(position).getBanner());
+        banner.setScaleType(ImageView.ScaleType.FIT_XY);
         container.addView(view,0);
         return view;
     }

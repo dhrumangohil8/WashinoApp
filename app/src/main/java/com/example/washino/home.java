@@ -67,17 +67,16 @@ private RecyclerView horizantalRecyclerView;
         bannerSliderViewPager= view.findViewById(R.id.banner_slider_view_pager);
         sliderModelList=new ArrayList<SliderModel>();
 
-        sliderModelList.add(new SliderModel(R.drawable.first,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.first,"#FFFFFF"));
 
-        sliderModelList.add(new SliderModel(R.drawable.second,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.three,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.fourth,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.five,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.six,"#A8A8A8"));
+        sliderModelList.add(new SliderModel(R.drawable.second,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.three,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.fourth,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.five,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.six,"#FFFFFF"));
 
-        sliderModelList.add(new SliderModel(R.drawable.first,"#A8A8A8"));
-        sliderModelList.add(new SliderModel(R.drawable.second,"#A8A8A8"));
-
+        sliderModelList.add(new SliderModel(R.drawable.first,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.second,"#FFFFFF"));
 
 
 
@@ -164,10 +163,6 @@ private RecyclerView horizantalRecyclerView;
 
         gridView.setAdapter(new GridServicesAdapter(horizontalProductScrollModelList));
         //// Grid Layout
-
-
-
-
 
         return view;
 
