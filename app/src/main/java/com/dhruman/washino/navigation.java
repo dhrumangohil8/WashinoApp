@@ -1,4 +1,4 @@
-package com.example.washino;
+package com.dhruman.washino;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

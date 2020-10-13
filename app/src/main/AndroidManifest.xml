@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.washino">
+    package="com.dhruman.washino">
 
     <application
         android:allowBackup="true"
@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="q">
-        <activity android:name=".PopUpClass"></activity>
-        <activity android:name=".navigation" />
-        <activity android:name=".verifyotp" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
-        <activity android:name=".userscreen" />
-        <activity android:name=".Splash">
+        <activity android:name="com.dhruman.washino.PopUpClass"></activity>
+        <activity android:name="com.dhruman.washino.navigation" />
+        <activity android:name="com.dhruman.washino.verifyotp" />
+        <activity android:name="com.dhruman.washino.Register" />
+        <activity android:name="com.dhruman.washino.Login" />
+        <activity android:name="com.dhruman.washino.userscreen" />
+        <activity android:name="com.dhruman.washino.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

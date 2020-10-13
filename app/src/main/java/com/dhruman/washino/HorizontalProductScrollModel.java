@@ -1,4 +1,4 @@
-package com.example.washino;
+package com.dhruman.washino;
 
 public class HorizontalProductScrollModel {
 

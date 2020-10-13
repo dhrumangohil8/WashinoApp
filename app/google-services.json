@@ -1,66 +1,63 @@
 {
   "project_info": {
-    "project_number": "1028468559095",
-    "firebase_url": "https://washinoapplication.firebaseio.com",
-    "project_id": "washinoapplication",
-    "storage_bucket": "washinoapplication.appspot.com"
+    "project_number": "251153921276",
+    "firebase_url": "https://washinoapp.firebaseio.com",
+    "project_id": "washinoapp",
+    "storage_bucket": "washinoapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1028468559095:android:2ee59b7fb34be4c03217f2",
+        "mobilesdk_app_id": "1:251153921276:android:4ca8740cc84780cf26d379",
         "android_client_info": {
-          "package_name": "com.example.washino"
+          "package_name": "com.dhruman.washino"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1028468559095-r78ulp7mvm6cuj5b9r8mcjrhm48dmd8l.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.washino",
-            "certificate_hash": "eb6e81353896a99ab84e77120e8512b6ac0698eb"
-          }
-        },
-        {
-          "client_id": "1028468559095-g1j38mpr61bcv8s3nm9b7sthqum1735f.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.washino",
-            "certificate_hash": "18c8c1ece4bfe650d5ed3c254742758f955a46db"
-          }
-        },
-        {
-          "client_id": "1028468559095-5s4aa577g6hhedmco5fqbl1t61hgr2gj.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.washino",
-            "certificate_hash": "a43f841ed189d47a4cf89cd82008bdb5ddce7755"
-          }
-        },
-        {
-          "client_id": "1028468559095-97sqk74dtp5h8cgjg83bif8384oqujsl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.washino",
-            "certificate_hash": "adf7c379bcf921761f6c61f2c74e414f26f19de1"
-          }
-        },
-        {
-          "client_id": "1028468559095-riceu4het05r8b9ntb6qfqeapr11acgn.apps.googleusercontent.com",
+          "client_id": "251153921276-lji1bmlsrcjjt8ukc2g2qnvfa77uj0fs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAofGYP11R-sBlhx8d5kFi64JLUyysgcCY"
+          "current_key": "AIzaSyBuWjanA8VLLsc5ch6sbCXFBeo10JncRRw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1028468559095-riceu4het05r8b9ntb6qfqeapr11acgn.apps.googleusercontent.com",
+              "client_id": "251153921276-lji1bmlsrcjjt8ukc2g2qnvfa77uj0fs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251153921276:android:ffce3bca8bbc8f0926d379",
+        "android_client_info": {
+          "package_name": "com.example.washino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251153921276-lji1bmlsrcjjt8ukc2g2qnvfa77uj0fs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuWjanA8VLLsc5ch6sbCXFBeo10JncRRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251153921276-lji1bmlsrcjjt8ukc2g2qnvfa77uj0fs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

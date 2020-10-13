@@ -1,9 +1,4 @@
-package com.example.washino;
-
-import android.widget.Spinner;
-
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+package com.dhruman.washino;
 
 import java.util.List;
 
