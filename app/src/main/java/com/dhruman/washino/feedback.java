@@ -57,6 +57,8 @@ public class feedback extends Fragment {
                 FeedbackClass feedback = new FeedbackClass(reviewText, ratingStar);
                 feedbackDb.child(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()).child("feedback").child(feedbackId).setValue(feedback);
                 Toast.makeText(getContext(), "Thanks for your feedback!", Toast.LENGTH_SHORT).show();
+                etReview.setText("");
+                ratingFeedback.setRating(0.0f);
             }
         });
         return view;

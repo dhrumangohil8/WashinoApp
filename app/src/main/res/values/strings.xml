@@ -3,9 +3,6 @@
 
     <string-array name="spinner_array">
         <item>+91</item>
-        <item>+65</item>
-        <item>+69</item>
-        <item>+85</item>
     </string-array>
 
     <string-array name="spinner_array1">
